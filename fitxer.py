@@ -26,6 +26,24 @@ def login():
     with app.app_context(): 
         return render_template('index.html', urls=selected_urls)
 
+@app.route('/next_image', methods=['GET'])
+def next_image():
+    urls = []
+    with open('hackupc2023_restbai__dataset_sample.json', encoding="utf8") as json_file:
+        data = json.load(json_file)
+    dataset = [data[i] for i in data]
+    df = pd.DataFrame(dataset)
+    for i in df['images']: 
+        urls.append(i[0])
+    new_url = random.choice(urls)
+    return {'image_url': new_url}
+
+
+
+
+
+
+
 
 
 
