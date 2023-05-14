@@ -261,23 +261,24 @@ body {
 					</div>
 				</div>
 				<div class="buttons">
-					<div class="no">
+					<div class="no" id="no-button">
 						<i class="fas fa-times"></i>
 					</div>
-					<div class="star">
+					<div class="star" id="star-button">
 						<i class="fas fa-star fa"></i>
 					</div>
-					<div class="heart">
+					<div class="heart" id="heart-button">
 						<i class="fas fa-heart"></i>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			function updateImage() {
 				$.getJSON("/next_image", function(data) {
-					$("#user-image").attr("src", data.image_url);
+					$(".user img").attr("src", data.image_url);
 				});
 			}
 	
